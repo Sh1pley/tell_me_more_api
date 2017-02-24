@@ -1,24 +1,14 @@
-# README
+# Tell Me More API
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is to be an external rails API that will store/serve users from a postgresql db
 
-Things you may want to cover:
+My intention is to seperate the back end and front end to better learn/teach myself testing in React -- one day?
+and offer stability to the API for updates that shouldn't break front end stability as everything will
+be served as JSON.
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+WIP:
+  Adding Doorkeeper to offer OAuth 2 authentication
+  accepting requests from an external React App that will offer CRUD to Users objects in the db
+  Add geolocation on login to update lat/long to later be used on the client side.
+  
+# Project is still very much a work in progress!
