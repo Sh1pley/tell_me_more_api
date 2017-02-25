@@ -1,11 +1,9 @@
 Rails.application.routes.draw do
   use_doorkeeper
+  
   namespace :api, defaults: {format: :json} do
     namespace :v1 do
-      resources :users, only: [:index, :show]
-      post :users, to: "users#new"
-      patch :users, to: "users#update"
-      delete :users, to: "users#destroy"
+      resources :users, only: [:index, :show, :destroy, :create, :update]
       get "/login", to: "sessions#new"
     end
   end
