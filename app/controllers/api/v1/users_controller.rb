@@ -1,5 +1,5 @@
 class Api::V1::UsersController < ApplicationController
-
+  
   def index
     render json: User.all
   end
@@ -16,9 +16,15 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def destroy
-    user = User.find(params[:id])
-    user.destroy
-    render json: "removed user!", status: :no_content
+    if authorized?
+      user = User.find(params[:id])
+      user.destroy
+      success = {message: "removed user!"}
+      render json: success, status: :no_content
+    else
+      error = {message: "Ah Ah Ah, You Can't Do That"}
+      render json: error
+    end
   end
 
   def update
@@ -30,6 +36,10 @@ class Api::V1::UsersController < ApplicationController
   end
 
   private
+    def authorized?
+      false #Placeholder until I figure out DoorKeeper!
+    end
+
     def user_params
       params.permit(:name, :email, :password_digest)
     end

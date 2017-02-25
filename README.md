@@ -1,5 +1,8 @@
 # Tell Me More API
 
+## What works?
+  POST, GET and PUT/PATCH request
+
 This is to be an external rails API that will store/serve users from a postgresql db
 
 My intention is to seperate the back end and front end to better learn/teach myself testing in React -- one day?
