@@ -31,7 +31,9 @@ Feb 26, 3ish pm..
   Well Well Well.. I can offer OAuth tokens now and I barely know what those are!
     - j/k had to leverage Devise and its warden method to help route external requests
     to get Doorkeeper to issue tokens
+
   Doorkeeper to offer OAuth 2 authentication -- Atleast I think it does.
+  
   Hosted on Heruko as a standalone API for funsies
 
 ## What doesn't yet!
