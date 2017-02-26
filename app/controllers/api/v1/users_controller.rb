@@ -1,6 +1,4 @@
-class Api::V1::UsersController < ApplicationController
-
-  skip_before_filter :verify_authenticity_token
+class Api::V1::UsersController < ApiController
   
   def index
     render json: User.all
@@ -35,6 +33,10 @@ class Api::V1::UsersController < ApplicationController
     if user.save
       render json: user
     end
+  end
+
+  def sync
+    render json: current_resource_owner.attributes, status: :ok
   end
 
   private
