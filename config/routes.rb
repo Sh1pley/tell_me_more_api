@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   use_doorkeeper
-  
+  get "/", to: "api/v1/users#sync"
   namespace :api, defaults: {format: :json} do
     namespace :v1 do
       get "users/sync", to: "users#sync"
