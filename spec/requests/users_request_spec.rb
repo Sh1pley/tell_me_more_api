@@ -37,7 +37,7 @@ RSpec.describe '/api/v1/users' do
     post "/api/v1/users", params
 
     expect(response.status).to be(201)
-
+    
     user = JSON.parse(response.body)
 
     expect(user).to have_key "id"
@@ -56,7 +56,7 @@ RSpec.describe '/api/v1/users' do
       email: "Moartest@test.com",
       password_digest: "12345"
     }
-    db_user = User.first
+    db_user = @users_list.first
 
     put "/api/v1/users/#{db_user.id}", params
     expect(response.status).to be(200)
