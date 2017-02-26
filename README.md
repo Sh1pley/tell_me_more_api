@@ -33,7 +33,7 @@ Feb 26, 3ish pm..
     to get Doorkeeper to issue tokens
 
   Doorkeeper to offer OAuth 2 authentication -- Atleast I think it does.
-  
+
   Hosted on Heruko as a standalone API for funsies
 
 ## What doesn't yet!
@@ -44,6 +44,7 @@ Feb 26, 3ish pm..
     * Add geolocation on login/sync to update lat/long to later be used on the client side.
     - accepting requests from an external React App that will offer CRUD to Users objects in the db
       - this works through postman request
+    - Working on a smart root path.. users#sync is landing for now
   
     
   
