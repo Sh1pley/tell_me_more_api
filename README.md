@@ -37,10 +37,11 @@ Feb 26, 3ish pm..
   Pretty much everything that a good API can do. Although mini wins are happening.
 
 ## WIP:
-  probably in order of getting attention:
+  - probably in order of getting attention:
     * Add geolocation on login/sync to update lat/long to later be used on the client side.
-    * accepting requests from an external React App that will offer CRUD to Users objects in the db
-      - this works through postman requests.. working on fleshing out Auth now.
+    - Will/Need to host on Heruko as a standalone API for funsies
+    - accepting requests from an external React App that will offer CRUD to Users objects in the db
+      - this works through postman request
   
     
   
