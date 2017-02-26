@@ -24,7 +24,7 @@ Feb 26, 3ish pm..
       - and hopefully as a way to geocode by IP location in a near future
     - figured out controller tests.. and the fact that they are not request tests
       -  even though an api controller pretty much is just requests..
-
+    - Heroku awesomeness!
 
 ## What works?
   POST, GET and PUT/PATCH request
@@ -32,6 +32,7 @@ Feb 26, 3ish pm..
     - j/k had to leverage Devise and its warden method to help route external requests
     to get Doorkeeper to issue tokens
   Doorkeeper to offer OAuth 2 authentication -- Atleast I think it does.
+  Hosted on Heruko as a standalone API for funsies
 
 ## What doesn't yet!
   Pretty much everything that a good API can do. Although mini wins are happening.
@@ -39,7 +40,6 @@ Feb 26, 3ish pm..
 ## WIP:
   - probably in order of getting attention:
     * Add geolocation on login/sync to update lat/long to later be used on the client side.
-    - Will/Need to host on Heruko as a standalone API for funsies
     - accepting requests from an external React App that will offer CRUD to Users objects in the db
       - this works through postman request
   
