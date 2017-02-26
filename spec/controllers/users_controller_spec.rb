@@ -8,6 +8,7 @@ RSpec.describe Api::V1::UsersController do
     @users_list = create_list(:user, 20)
     
     allow(controller).to receive(:doorkeeper_token) { test_token }
+    allow(controller).to receive(:authorized?) { true }
   end
 
   it 'should respond with 200' do
