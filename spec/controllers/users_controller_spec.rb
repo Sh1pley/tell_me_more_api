@@ -1,27 +1,27 @@
 require 'rails_helper'
 
-RSpec.describe '/api/v1/users' do
-  
+RSpec.describe Api::V1::UsersController do
+  let(:test_token) do
+    double :acceptable? => true, :scopes => [:api]
+  end
   before do
     @users_list = create_list(:user, 20)
-    post "/oauth/token", params: {grant_type: "password",
-                                         email: "#{@users_list.first.email}",
-                                         password: "#{@users_list.first.password}"}
-    @token_info = JSON.parse(response.body)
+    
+    allow(controller).to receive(:doorkeeper_token) { test_token }
   end
 
   it 'should respond with 200' do
-    get "/api/v1/users", params: @token_info
+    get :index
 
     expect(response).to be_success
   end
 
-  it 'should contain specific users' do
-    get '/api/v1/users', params: @token_info
+  it 'should contain specific user detail' do
+    get :index
 
     users = response.body
     expect(users).to be_a(String)
-
+    
     parsed_users = JSON.parse(users)
     
     expect(parsed_users.first).to have_key "id"
@@ -33,20 +33,36 @@ RSpec.describe '/api/v1/users' do
     expect(parsed_users.first).to_not have_key "updated_at"
   end
 
-  it 'should respond with new item and 201 response after a post request' do
+  it 'should show specific user ' do
+    user = User.first
+    get :index, params: {id: user.id}
+
+    user = response.body
+    expect(user).to be_a(String)
+    
+    parsed_user = JSON.parse(user)
+    
+    expect(parsed_user.first).to have_key "id"
+    expect(parsed_user.first).to have_key "name"
+    expect(parsed_user.first).to have_key "email"
+    expect(parsed_user.first).to have_key "password_digest"
+
+    expect(parsed_user.first).to_not have_key "created_at"
+    expect(parsed_user.first).to_not have_key "updated_at"
+  end
+
+  xit 'should respond with new item and 201 response after a post request' do
     params = {
       name: "Test",
       email: "Moartest@test.com",
-      password: "12345",
-      access_token: @token_info["access_token"]
+      password: "12345"
     }
-    
-    post "/api/v1/users", params
+    post :index, params
 
     expect(response.status).to be(201)
     
+    
     user = JSON.parse(response.body)
-
     expect(user).to have_key "id"
     expect(user).to have_key "name"
     expect(user).to have_key "email"
@@ -57,16 +73,16 @@ RSpec.describe '/api/v1/users' do
     expect(user).to_not have_key "updated_at"
   end
 
-  it 'should respond with updated item and status ok' do
+  xit 'should respond with updated item and status ok' do
+    db_user = @users_list.first
     params = {
+      id: db_user.id,
       name: "Test Updated",
       email: "Moartest@test.com",
-      password: "12345",
-      access_token: @token_info["access_token"]
+      password: "12345"
     }
-    db_user = @users_list.first
 
-    put "/api/v1/users/#{db_user.id}", params
+    put :show, params: params 
     expect(response.status).to be(200)
 
     user = JSON.parse(response.body)

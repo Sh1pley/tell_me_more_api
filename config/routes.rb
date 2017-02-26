@@ -3,8 +3,8 @@ Rails.application.routes.draw do
   
   namespace :api, defaults: {format: :json} do
     namespace :v1 do
+      get "users/sync", to: "users#sync"
       resources :users, only: [:index, :show, :destroy, :create, :update]
-      get "/login", to: "sessions#new"
     end
   end
 
