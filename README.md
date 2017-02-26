@@ -6,6 +6,9 @@ My intention is to seperate the back end and front end to better learn/teach mys
 and offer stability to the API for updates that shouldn't break front end stability as everything will
 be served as JSON.
 
+Feb 25.. about 830 pm.. 
+  - this stateless API business is interesting but also confusing.
+
 ## What works?
   POST, GET and PUT/PATCH request
 
