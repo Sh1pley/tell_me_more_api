@@ -32,7 +32,7 @@ RSpec.describe '/api/v1/users' do
     params = {
       name: "Test",
       email: "Moartest@test.com",
-      password_digest: "12345"
+      password: "12345"
     }
     post "/api/v1/users", params
 
@@ -43,7 +43,7 @@ RSpec.describe '/api/v1/users' do
     expect(user).to have_key "id"
     expect(user).to have_key "name"
     expect(user).to have_key "email"
-    
+
     expect(user).to have_key "password_digest"
     
     expect(user).to_not have_key "created_at"
@@ -54,7 +54,7 @@ RSpec.describe '/api/v1/users' do
     params = {
       name: "Test Updated",
       email: "Moartest@test.com",
-      password_digest: "12345"
+      password: "12345"
     }
     db_user = @users_list.first
 
@@ -65,6 +65,6 @@ RSpec.describe '/api/v1/users' do
 
     expect(user["name"]).to eq("Test Updated")
     expect(user["email"]).to eq("Moartest@test.com")
-    expect(user["password_digest"]).to eq("12345")
+    expect(user["password_digest"]).to_not eq("12345")
   end
 end

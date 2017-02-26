@@ -1,4 +1,6 @@
 class Api::V1::UsersController < ApplicationController
+
+  skip_before_filter :verify_authenticity_token
   
   def index
     render json: User.all
@@ -41,6 +43,6 @@ class Api::V1::UsersController < ApplicationController
     end
 
     def user_params
-      params.permit(:name, :email, :password_digest)
+      params.permit(:name, :email, :password)
     end
 end
