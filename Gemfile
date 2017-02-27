@@ -21,6 +21,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'devise'
 gem 'doorkeeper'
 
+gem 'geocoder'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

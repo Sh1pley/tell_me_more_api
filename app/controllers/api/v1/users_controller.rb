@@ -31,7 +31,9 @@ class Api::V1::UsersController < ApiController
   end
 
   def sync
-    render json: current_resource_owner.attributes, status: :ok
+    stats = {current_user: current_resource_owner.attributes,
+             ip_location: request.location}
+    render json: stats
   end
 
   private
