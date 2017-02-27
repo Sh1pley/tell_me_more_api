@@ -36,16 +36,35 @@ Feb 26, 3ish pm..
 
   Hosted on Heruko as a standalone API for funsies
 
+## Testing API calls from your home!
+
+  API host is https://tell-me-more.herokuapp.com/
+
+  In order to get an OAuth token, you would follow these steps
+
+    1 POST request to https://tell-me-more.herokuapp.com/oauth/token
+    2 need to include params for
+       grant_type = password
+       email      = test@example.com
+       password   = password
+    3 copy down the access_token to be used later
+
+  Geocoded location should now be seen by sending
+
+    1 GET request to https://tell-me-more.herokuapp.com/
+    2 with params for
+       access_token = whatever your access token from above was.
+
+  Should now see the test user and ip location information from your request.
+
 ## What doesn't yet!
   Pretty much everything that a good API can do. Although mini wins are happening.
 
 ## WIP:
   - probably in order of getting attention:
-    * Add geolocation on login/sync to update lat/long to later be used on the client side.
     - accepting requests from an external React App that will offer CRUD to Users objects in the db
       - this works through postman request
     - Working on a smart root path.. users#sync is landing for now
-  
     
   
 # Project is still very much a work in progress!
