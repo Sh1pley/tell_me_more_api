@@ -67,6 +67,7 @@ Feb 26, 3ish pm..
     - accepting requests from an external React App that will offer CRUD to Users objects in the db
       - this works through postman request
     - Working on a smart root path.. users#sync is landing for now
+    
     #### this has been but on a back burner.. on to React madness!
     - adding actioncable connection route to api_controller..
       - not 100% sure if this is a possible feature of an external api
