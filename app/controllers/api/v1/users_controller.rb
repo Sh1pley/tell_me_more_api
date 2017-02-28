@@ -32,7 +32,7 @@ class Api::V1::UsersController < ApiController
 
   def sync
     stats = {current_user: current_resource_owner.attributes,
-             ip_location: request.safe_location}
+             ip_location: User.add_coordinates(current_resource_owner, request.safe_location)}
     render json: stats
   end
 
