@@ -6,7 +6,7 @@ class ApiController < ApplicationController
 
     def authorized?
       unless params[:access_token]
-        render json: {message: "Nope!"}, status: 404
+        render json: {message: "Nope!"}, status: :ok
       end 
     end
 end
