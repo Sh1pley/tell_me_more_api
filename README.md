@@ -25,6 +25,8 @@ Feb 26, 3ish pm..
     - figured out controller tests.. and the fact that they are not request tests
       -  even though an api controller pretty much is just requests..
     - Heroku awesomeness!
+  Feb 28
+    - Added API side caching, drastically cuts down on response time, from 1500ms + to sub 300ms !
 
 ## What works?
   POST, GET and PUT/PATCH request
@@ -62,11 +64,13 @@ Feb 26, 3ish pm..
 
 ## WIP:
   - probably in order of getting attention:
-    - adding actioncable connection route to api_controller..
-      - not 100% sure if this is a possible feature of an external api
     - accepting requests from an external React App that will offer CRUD to Users objects in the db
       - this works through postman request
     - Working on a smart root path.. users#sync is landing for now
+    
+    #### this has been but on a back burner.. on to React madness!
+    - adding actioncable connection route to api_controller..
+      - not 100% sure if this is a possible feature of an external api
     
   
 # Project is still very much a work in progress!
